@@ -18,7 +18,7 @@ passport.deserializeUser((id, done) => {
 passport.use(new GoogleStrategy({
 clientID: keys.googleClientID,
 clientSecret: keys.googleClientSecret,
-callbackURL: 'https://ancient-woodland-80355.herokuapp.com/auth/google/callback',
+callbackURL: '/auth/google/callback',
 proxy: true
 },
 (accessToken, refreshToken, profile, done) => {
