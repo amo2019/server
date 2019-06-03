@@ -23,7 +23,7 @@ module.exports = app => {
   // res.end('U R Loged out!\n');
       });
 
-      app.get('/api/current-user', (req, res) => {
+      app.get('/api/current_user', (req, res) => {
       //res.send(req.session);
        res.send(req.user);
       });
