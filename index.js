@@ -40,8 +40,7 @@ if (process.env.MODE_ENV === 'production') {
 }
 
 const PORT = process.env.PORT || 5000;
-//app.listen(PORT);
-
-app.listen(PORT, function () {
-  console.log('Example App listening on port ' + PORT + '!');
-});
+app.listen(PORT);
+// app.listen(PORT, function () {
+//   console.log('Example App listening on port ' + PORT + '!');
+// });
