@@ -8,12 +8,14 @@ module.exports = app => {
       // app.get('/', (req, res)=> {
       //   res.send({Hi: 'Hi There, Say Hello'});
       // });
-      app.get('/auth/google/callback', passport.authenticate('google'));
+      app.get('/auth/google/callback', passport.authenticate('google'),
+      (req, res) => { res.redirect('/surveys');
+    });
 
       app.get('/api/logout', (req, res) => {
         //res.send('U R Loged out!');
         req.logout();
-        res.send(req.user);
+        res.redirect('/');
         //JSON.stringify(req.user);
         //JSON.parse(req.user);
         //res.send(JSON.stringify(user));
