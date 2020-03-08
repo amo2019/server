@@ -24,15 +24,20 @@ proxy: true
 async (accessToken, refreshToken, profile, done) => {
 //   console.log('access token: ', accessToken);
 //   console.log('refresh token: ', refreshToken);
-
+try{
 const existingUser = await User.findOne({ googleID: profile.id });
      //console.log('Already Exist: ', profile.id);
     if (existingUser){
     return done(null, existingUser);
     }
-    
+  } catch (error) {
+             console.log(error);}
+
+try{
   const user = await new User({ googleID: profile.id }).save();
   done(null, user)
+} catch (error) {
+           console.log(error);}
     //.catch(error => cb(error, null));
       //  console.log(error);
     //console.log('profile!: ', profile.id);

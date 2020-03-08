@@ -10,8 +10,9 @@
     "start": "node index.js",
     "server": "nodemon index.js ",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "webhook": "./sendgrid_webhook.sh"
   },
   "keywords": [],
   "author": "",
@@ -26,10 +27,14 @@
     "express": "^4.16.4",
     "heroku-cli": "^7.0.9",
     "http-proxy-middleware": "^0.19.1",
+    "localtunnel": "^1.9.2",
+    "lodash": "^4.17.11",
     "mongoose": "^5.5.9",
     "nodemon": "^1.19.0",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^2.0.0",
+    "path-parser": "^2.0.2",
+    "sendgrid": "^5.2.3",
     "stripe": "^7.1.0"
   },
   "description": ""
