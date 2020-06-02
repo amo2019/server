@@ -8,7 +8,7 @@ class  Payments extends Component {
     //debugger;
     return(
        <StripeCheckout
-          name="Emaily"
+          name="Surveying"
           description="$5 for email credits"
           amount={500}
           token={token => this.props.handleToken(token)}

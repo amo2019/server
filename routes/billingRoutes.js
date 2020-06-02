@@ -14,11 +14,9 @@ try {
           source: req.body.id
         })
 console.log('Charge:', charge);
-    }  catch{ (err => {
+    }  catch (err) {
     console.log("Error::", err);
   //  res.status(500).send({error: "Purchase Failed"});
-});
-
 };
 
     try { req.user.credits += 5;

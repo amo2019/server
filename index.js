@@ -1,5 +1,4 @@
-//common js modules, ES2015 modules import express from 'express';
-const express = require ('express');
+const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
@@ -9,7 +8,8 @@ require('./models/User');
 require('./models/Survey');
 require('./services/passport');
 
-mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
+mongoose.Promise = global.Promise;
+mongoose.connect(keys.mongoURI);
 
 const app = express();
 
