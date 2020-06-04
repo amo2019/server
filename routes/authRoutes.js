@@ -1,32 +1,27 @@
 const passport = require('passport');
 
 module.exports = app => {
-      app.get('/auth/google', passport.authenticate('google', {
-        scope: ['profile', 'email']
-      })
-      );
-      // app.get('/', (req, res)=> {
-      //   res.send({Hi: 'Hi There, Say Hello'});
-      // });
-      app.get('/auth/google/callback', passport.authenticate('google'),
-      (req, res) => { res.redirect('/surveys');
-    });
+  app.get(
+    '/auth/google',
+    passport.authenticate('google', {
+      scope: ['profile', 'email']
+    })
+  );
 
-      app.get('/api/logout', (req, res) => {
-        //res.send('U R Loged out!');
-        req.logout();
-        res.redirect('/');
-        //JSON.stringify(req.user);
-        //JSON.parse(req.user);
-        //res.send(JSON.stringify(user));
-        //res.send('U R Loged out!');
-  //       res.statusCode = 200;
-  // res.setHeader('Content-Type', 'text/plain');
-  // res.end('U R Loged out!\n');
-      });
+  app.get(
+    '/auth/google/callback',
+    passport.authenticate('google'),
+    (req, res) => {
+      res.redirect('/surveys');
+    }
+  );
 
-      app.get('/api/current_user', (req, res) => {
-      //res.send(req.session);
-       res.send(req.user);
-      });
+  app.get('/api/logout', (req, res) => {
+    req.logout();
+    res.redirect('/');
+  });
+
+  app.get('/api/current_user', (req, res) => {
+    res.send(req.user);
+  });
 };
