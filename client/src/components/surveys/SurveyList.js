@@ -11,7 +11,7 @@ class SurveyList extends Component {
     return this.props.surveys.reverse().map(survey => {
       const generateKey = (title) => {
         
-        return `${(Math.floor(Math.random() * 40))} + ${(Math.floor(Math.random() * 50))}` ;
+        return `${(Math.floor(Math.random() * 40))} + ${(Math.floor(Math.random() * 50))} + ${(Math.floor(Math.random() * 50))}` ;
     }
  
       return (
