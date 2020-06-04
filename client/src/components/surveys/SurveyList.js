@@ -9,8 +9,15 @@ class SurveyList extends Component {
 
   renderSurveys() {
     return this.props.surveys.reverse().map(survey => {
+      const generateKey = (title) => {
+        
+        return `${(Math.floor(Math.random() * 40))} + ${(Math.floor(Math.random() * 50))}` ;
+    }
+ 
       return (
-        <div className="card darken-1" key={survey._id}>
+      <div key={ generateKey(survey.title)} className="row">
+      
+        <div className="card   green lighten-5" key={survey._id}>
           <div className="card-content">
             <span className="card-title">{survey.title}</span>
             <p>
@@ -20,10 +27,12 @@ class SurveyList extends Component {
               Sent On: {new Date(survey.dateSent).toLocaleDateString()}
             </p>
           </div>
-          <div className="card-action">
-            <a>Yes: {survey.yes}</a>
-            <a>No: {survey.no}</a>
+          <div className="card-action green lighten-5">
+            <a style={{ color:"#2F4F4F", fontWeight: "bold"}}>Yes: {survey.yes}</a>
+            <a style={{ color:"#2F4F4F", fontWeight: "bold"}}>No: {survey.no}</a>
           </div>
+         </div>
+        
         </div>
       );
     });
